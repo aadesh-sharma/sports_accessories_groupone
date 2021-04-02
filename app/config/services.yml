@@ -16,7 +16,12 @@ services:
     #     public: true
     #     tags:
     #         - { name: templating.helper, alias: fooBar }
-
+    # Example event listener for objects
+    AppBundle\EventListener\DateListener:
+        tags:
+    #        - { name: kernel.event_listener, event: pimcore.asset.preUpdate, method: onPreUpdate }
+    #        - { name: kernel.event_listener, event: pimcore.document.preUpdate, method: onPreUpdate }
+            - { name: kernel.event_listener, event: pimcore.dataobject.preUpdate, method: onPreUpdate }
     # Example event listener for objects
     # AppBundle\EventListener\TestListener:
     #     tags:

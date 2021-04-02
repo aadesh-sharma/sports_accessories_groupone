@@ -21,7 +21,6 @@ Fields Summary:
 - returnable [checkbox]
 - warranty [quantityValue]
 - manufacturedAt [date]
-- modifiedAt [date]
 - country [select]
 */ 
 
@@ -31,7 +30,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'Products',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1617306222,
+   'modificationDate' => 1617352280,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -547,8 +546,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
           14 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Date::__set_state(array(
              'fieldtype' => 'date',
-             'queryColumnType' => 'bigint(20)',
-             'columnType' => 'bigint(20)',
+             'queryColumnType' => 'date',
+             'columnType' => 'date',
              'phpdocType' => '\\Carbon\\Carbon',
              'defaultValue' => NULL,
              'useCurrentDate' => false,
@@ -569,30 +568,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'defaultValueGenerator' => '',
           )),
           15 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Date::__set_state(array(
-             'fieldtype' => 'date',
-             'queryColumnType' => 'bigint(20)',
-             'columnType' => 'bigint(20)',
-             'phpdocType' => '\\Carbon\\Carbon',
-             'defaultValue' => NULL,
-             'useCurrentDate' => false,
-             'name' => 'modifiedAt',
-             'title' => 'Modified At',
-             'tooltip' => '',
-             'mandatory' => true,
-             'noteditable' => false,
-             'index' => false,
-             'locked' => false,
-             'style' => '',
-             'permissions' => NULL,
-             'datatype' => 'data',
-             'relationType' => false,
-             'invisible' => false,
-             'visibleGridView' => false,
-             'visibleSearch' => false,
-             'defaultValueGenerator' => '',
-          )),
-          16 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
              'fieldtype' => 'select',
              'options' => 

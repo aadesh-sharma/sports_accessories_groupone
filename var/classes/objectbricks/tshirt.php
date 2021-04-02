@@ -5,7 +5,7 @@ Fields Summary:
 - neckType [select]
 - material [select]
 - sleeveType [select]
-- size [quantityValue]
+- size [select]
 */ 
 
 
@@ -206,34 +206,50 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'defaultValueGenerator' => '',
           )),
           3 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\QuantityValue::__set_state(array(
-             'fieldtype' => 'quantityValue',
-             'width' => NULL,
-             'unitWidth' => NULL,
-             'defaultValue' => NULL,
-             'defaultUnit' => NULL,
-             'validUnits' => 
+          Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
+             'fieldtype' => 'select',
+             'options' => 
             array (
-              0 => '32',
-              1 => '30',
-              2 => '28',
-              3 => '34',
-              4 => '26',
-              5 => '36',
+              0 => 
+              array (
+                'key' => 's',
+                'value' => 's',
+              ),
+              1 => 
+              array (
+                'key' => 'm',
+                'value' => 'm',
+              ),
+              2 => 
+              array (
+                'key' => 'l',
+                'value' => 'l',
+              ),
+              3 => 
+              array (
+                'key' => 'xl',
+                'value' => 'xl',
+              ),
+              4 => 
+              array (
+                'key' => 'xxl',
+                'value' => 'xxl',
+              ),
+              5 => 
+              array (
+                'key' => 'xxxl',
+                'value' => 'xxxl',
+              ),
             ),
-             'decimalPrecision' => NULL,
-             'autoConvert' => false,
-             'queryColumnType' => 
-            array (
-              'value' => 'double',
-              'unit' => 'varchar(50)',
-            ),
-             'columnType' => 
-            array (
-              'value' => 'double',
-              'unit' => 'varchar(50)',
-            ),
-             'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\QuantityValue',
+             'width' => '',
+             'defaultValue' => '',
+             'optionsProviderClass' => '\\AppBundle\\OptionProvider\\SizeOptions',
+             'optionsProviderData' => '',
+             'queryColumnType' => 'varchar',
+             'columnType' => 'varchar',
+             'columnLength' => 190,
+             'phpdocType' => 'string',
+             'dynamicOptions' => false,
              'name' => 'size',
              'title' => 'Size',
              'tooltip' => '',
