@@ -10,7 +10,7 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
    'name' => 'dataentry',
    'description' => 'for data entry operator ,nothing to show.',
    'creationDate' => 1617345516,
-   'modificationDate' => 1617352701,
+   'modificationDate' => 1617524622,
    'userOwner' => 2,
    'userModification' => 0,
    'classId' => '2',

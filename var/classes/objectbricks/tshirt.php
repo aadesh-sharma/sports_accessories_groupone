@@ -126,7 +126,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
               2 => 
               array (
                 'key' => 'Nylon',
-                'value' => 'Nylon',
+                'value' => 'nylon',
               ),
               3 => 
               array (
@@ -256,7 +256,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'mandatory' => true,
              'noteditable' => false,
              'index' => false,
-             'locked' => NULL,
+             'locked' => false,
              'style' => '',
              'permissions' => NULL,
              'datatype' => 'data',

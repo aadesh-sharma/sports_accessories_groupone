@@ -3,7 +3,7 @@
 /** 
 Fields Summary: 
 - headwearType [select]
-- size [quantityValue]
+- size [select]
 */ 
 
 
@@ -137,39 +137,42 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'defaultValueGenerator' => '',
           )),
           1 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\QuantityValue::__set_state(array(
-             'fieldtype' => 'quantityValue',
-             'width' => NULL,
-             'unitWidth' => NULL,
-             'defaultValue' => NULL,
-             'defaultUnit' => NULL,
-             'validUnits' => 
+          Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
+             'fieldtype' => 'select',
+             'options' => 
             array (
-              0 => '32',
-              1 => '30',
-              2 => '28',
-              3 => '34',
+              0 => 
+              array (
+                'key' => 'Large',
+                'value' => 'large',
+              ),
+              1 => 
+              array (
+                'key' => 'Medium',
+                'value' => 'medium',
+              ),
+              2 => 
+              array (
+                'key' => 'Small',
+                'value' => 'small',
+              ),
             ),
-             'decimalPrecision' => NULL,
-             'autoConvert' => false,
-             'queryColumnType' => 
-            array (
-              'value' => 'double',
-              'unit' => 'varchar(50)',
-            ),
-             'columnType' => 
-            array (
-              'value' => 'double',
-              'unit' => 'varchar(50)',
-            ),
-             'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\QuantityValue',
+             'width' => '',
+             'defaultValue' => '',
+             'optionsProviderClass' => '',
+             'optionsProviderData' => '',
+             'queryColumnType' => 'varchar',
+             'columnType' => 'varchar',
+             'columnLength' => 190,
+             'phpdocType' => 'string',
+             'dynamicOptions' => false,
              'name' => 'size',
              'title' => 'Size',
              'tooltip' => '',
              'mandatory' => true,
              'noteditable' => false,
              'index' => false,
-             'locked' => false,
+             'locked' => NULL,
              'style' => '',
              'permissions' => NULL,
              'datatype' => 'data',
