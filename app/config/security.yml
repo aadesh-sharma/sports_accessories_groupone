@@ -1,3 +1,11 @@
 # To get started with security, check out the documentation:
 # http://symfony.com/doc/current/security.html
 security:
+    #firewalls:
+     #   practice_project_webservice:
+      #      pattern: ^/webservice
+       #     stateless: true
+        #    provider: pimcore_admin
+         #   guard:
+          #      authenticators:
+           #         - AppBundle\Security\Guard\WebserviceAuthenticator

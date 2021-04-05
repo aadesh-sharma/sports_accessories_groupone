@@ -1,6 +1,10 @@
 <?php
 
 namespace AppBundle\Command;
+
+use Pimcore\Model\Notification\Service\NotificationService;
+
+use Pimcore\Model\Notification\Service\UserService;
 use Pimcore\Mail;
 use Pimcore\Console\AbstractCommand;
 use Pimcore\Console\Dumper;
@@ -25,18 +29,22 @@ class ProductTest extends AbstractCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {  
-        $products = new \Pimcore\Model\DataObject\Products\Listing();
+        //$products = new \Pimcore\Model\DataObject\Products\Listing();
         
-        foreach($products as $product){
-           $this->dump($product->getPrice()->getValue());
-        }
-        
-        //$obj = new DataObject\Objectbrick\Data\Cosmetics($product);
-                
+       $user=new \Pimcore\Model\Notification\Service\UserService();
+     $notificationService=new \Pimcore\Model\Notification\Service\NotificationService($user);
+    
+    $notificationService->sendToUser(
+        5, // User recipient
+        2, // User sender 0 - system
+        'Notification',
+        'csv file Successfully imported'
+       );
+
         
       
         
         $this->dump("hiii");
-             
+          
     }
 }
