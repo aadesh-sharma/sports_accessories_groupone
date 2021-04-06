@@ -26,3 +26,12 @@ services:
     # AppBundle\EventListener\TestListener:
     #     tags:
     #         - { name: kernel.event_listener, event: pimcore.dataobject.preUpdate, method: onObjectPreUpdate }
+    AppBundle\Security\Guard\WebserviceAuthenticator:
+        public: false
+        calls:
+            - [setLogger, ['@logger']]
+        tags:
+            - { name: monolog.logger, channel: security }
+    
+    
+    

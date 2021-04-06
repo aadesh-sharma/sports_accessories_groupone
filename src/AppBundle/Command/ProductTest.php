@@ -29,22 +29,41 @@ class ProductTest extends AbstractCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {  
-        //$products = new \Pimcore\Model\DataObject\Products\Listing();
+        $products = new \Pimcore\Model\DataObject\Products\Listing();
         
-       $user=new \Pimcore\Model\Notification\Service\UserService();
-     $notificationService=new \Pimcore\Model\Notification\Service\NotificationService($user);
-    
-    $notificationService->sendToUser(
-        5, // User recipient
-        2, // User sender 0 - system
-        'Notification',
-        'csv file Successfully imported'
-       );
-
+        foreach($products as $x){
         
-      
+          $this->dump("##########");
+             $this->dump($x->getKey());
+             $this->dump($x->getProductSKU());
+             $this->dump($x->getCategory_Id()->getName());
+             $this->dump($x->getParentId());
+             $this->dump($x->getProductName());
+             $this->dump($x->getPrice()->getValue());
+             $this->dump($x->getColor()->getHex(true,true));//
+             $this->dump($x->getDiscount()->getValue());
+             $this->dump($x->getBrandName());
+             $this->dump($x->getDescription());
+             $this->dump(($x->getRatings()));
+             $this->dump($x->getStatus());
+             $this->dump($x->getProductImage()->getPath());
+             $this->dump($x->getReturnable());
+             $this->dump($x->getWarranty()->getValue());
+             $this->dump($x->getCountry());
+             $this->dump($x->getManufacturedAt());
+             $this->dump($x->getProductType()->getTshirt()->getType());
+             
+             
+          break;
+             
+        }
         
         $this->dump("hiii");
           
     }
 }
+
+
+
+
+

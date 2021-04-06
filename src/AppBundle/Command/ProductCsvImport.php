@@ -144,9 +144,9 @@ class ProductCsvImport extends AbstractCommand
         		//$this->dump("price:  ".$price);
         	
         		//color
-        		$color = new \Pimcore\Model\DataObject\Data\RgbaColor();
-      			$color->setRgba($color);
-        		$product->setColor($color);
+        		$clr = new \Pimcore\Model\DataObject\Data\RgbaColor();
+      			$clr->setRgba($color);
+        		$product->setColor($clr);
         		//$this->dump("color:  ".$color);
         	
         		//discount
