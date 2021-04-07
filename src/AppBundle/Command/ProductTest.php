@@ -29,29 +29,13 @@ class ProductTest extends AbstractCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {  
-        $products = new \Pimcore\Model\DataObject\Products\Listing();
+        $products = new \Pimcore\Model\DataObject\Category\Listing();
         
         foreach($products as $x){
         
           $this->dump("##########");
-             $this->dump($x->getKey());
-             $this->dump($x->getProductSKU());
-             $this->dump($x->getCategory_Id()->getName());
-             $this->dump($x->getParentId());
-             $this->dump($x->getProductName());
-             $this->dump($x->getPrice()->getValue());
-             $this->dump($x->getColor()->getHex(true,true));//
-             $this->dump($x->getDiscount()->getValue());
-             $this->dump($x->getBrandName());
-             $this->dump($x->getDescription());
-             $this->dump(($x->getRatings()));
-             $this->dump($x->getStatus());
-             $this->dump($x->getProductImage()->getPath());
-             $this->dump($x->getReturnable());
-             $this->dump($x->getWarranty()->getValue());
-             $this->dump($x->getCountry());
-             $this->dump($x->getManufacturedAt());
-             $this->dump($x->getProductType()->getTshirt()->getType());
+             $this->dump($x->getCreatedAt());
+             
              
              
           break;

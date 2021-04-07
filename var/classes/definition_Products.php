@@ -30,7 +30,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'Products',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1617517858,
+   'modificationDate' => 1617773866,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -510,8 +510,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'defaultUnit' => 'years',
              'validUnits' => 
             array (
-              0 => 'months',
-              1 => 'years',
+              0 => 'year',
+              1 => 'month',
             ),
              'decimalPrecision' => NULL,
              'autoConvert' => false,

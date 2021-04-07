@@ -431,7 +431,7 @@ class ProductCsvImport extends AbstractCommand
         
 
         
-        $this->dump("saved");
+       // $this->dump("saved");
        //*/
     }
     
