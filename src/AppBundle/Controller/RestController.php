@@ -41,12 +41,13 @@ use Pimcore\Model\DataObject\Data\BlockElement;
       */
     public function getProductList(Request $request, BruteforceProtectionHandler $bruteforceProtectionHandler)
     {   
-        $filters=$this->getJsonData($request);
+    //6c4fc042e1ab3df2fc8c745ea10ea1894dbb23e501cf8542226260d0fe3ff996
+       $filters=$this->getJsonData($request);
         
         $data = [];
         $products = new \Pimcore\Model\DataObject\Products\Listing();
         
-        
+        ///*       
         if($filters['limit']!=""){
         	$products->setLimit($filters['limit']);
         }
@@ -57,7 +58,7 @@ use Pimcore\Model\DataObject\Data\BlockElement;
         	//$products->filterByRatings($filters['ratings'], '==');
         	$products->setCondition("ratings = ?",$filters['ratings']);
         }
-       
+       //*/
        
        
         foreach ($products as $product)
@@ -76,7 +77,7 @@ use Pimcore\Model\DataObject\Data\BlockElement;
             
             $productType="";
             foreach($Type as $x){
-               if($x !=='null'){
+               if($x !==null){
                  $productType=$x->getType();
                  break;
                }
@@ -201,7 +202,7 @@ use Pimcore\Model\DataObject\Data\BlockElement;
                 'description' => $product->getDescription(),
                 'ratings' => $product->getRatings(),
                 'status' => $product->getStatus(), 
-                'image' => $product->getProductImage()->getPath(), 
+                'image' => $product->getProductImage()->getFilename(), 
                 'returnable' => $product->getReturnable(), 
                 'warranty' => $product->getWarranty()->getValue(), 
                 'country' => $product->getCountry(), 
@@ -236,6 +237,205 @@ use Pimcore\Model\DataObject\Data\BlockElement;
            return $this->createSuccessResponse($data, true);
       
     }
+    
+    
+     /**
+      * @Route("/webservice/products1")
+      * @Method({"GET"})
+      * @param Request $request
+      * @return \Symfony\Component\HttpFoundation\JsonResponse
+      * @throws \Pimcore\Http\Exception\ResponseException
+      * @throws \Exception
+      */
+    public function getProductList1(Request $request, BruteforceProtectionHandler $bruteforceProtectionHandler)
+    {   
+    //6c4fc042e1ab3df2fc8c745ea10ea1894dbb23e501cf8542226260d0fe3ff996
+       
+       
+        $data = [];
+        $products = new \Pimcore\Model\DataObject\Products\Listing();
+        foreach ($products as $product)
+        {   
+            $Type=array();
+            $Type[0]= $product->getProductType()->getHeadwear();
+            $Type[1]= $product->getProductType()->getBag();
+            $Type[2]= $product->getProductType()->getBottle();
+            $Type[3]= $product->getProductType()->getGlasses();
+            $Type[4]= $product->getProductType()->getJacket();
+            $Type[5]= $product->getProductType()->getPants();
+            $Type[6]= $product->getProductType()->getShoes();
+            $Type[7]= $product->getProductType()->getSocks();
+            $Type[8]= $product->getProductType()->getTshirt();
+            $Type[9]= $product->getProductType()->getWatches();
+            
+            $productType="";
+            foreach($Type as $x){
+               if($x !==null){
+                 $productType=$x->getType();
+                 break;
+               }
+            }
+            
+                //tshirt
+        		if($productType=="tshirt"){
+        			$productT = $Type[8];
+        			$necktype=$productT->getNeckType();
+        			$material=  $productT->getMaterial();
+        			 $size = $productT->getSize();
+        			 $sleeveType = $productT->getSleeveType();
+        			
+        		}
+        		
+        		//bag
+        		if($productType=="Bag"){
+        			
+        			$productT= $Type[1];
+        			$Capacity = $productT->getCapacity();
+        			$size = $productT->getSize();
+        			$height = $productT->getHeight();
+                		$length = $productT->getLength();
+                		$width = $productT->getWidth();
+        			$bagType = $productT->getBagType();
+        			$Waterproof = $productT->getWaterproof();
+        		
+        			
+      		  	}
+      		  	
+      		  	
+      		  	//bottle
+      	  		if($productType=="bottle"){
+        			$productT = $Type[2];
+        			$Capacity = $productT->getCapacity();
+        			$BottleType = $productT->getBottleType();
+        			$material =  $productT->getMaterial();
+        			
+        		}
+        		
+        		//Glassess
+        		if($productType=="Glasses"){
+        			$productT = $Type[3];
+        			$GlassType = $productT->getglassType();
+                		$FrameShape = $productT->getFrameShape();
+        		
+       
+        		}
+        		
+        		//Headwear
+        		if($productType=="Headwear"){
+        			$productT = $Type[0];
+        			$HeadwearType = $productT->getHeadwearType();
+        			$size = $productT->getSize();
+        			
+        			
+    		          }
+    		          //Jacket
+        		if($productType=="Jacket"){
+        			$productT = $Type[4];
+        			$JacketType = $productT->getJacketType();
+        			$material =  $productT->getMaterial();
+                		$size = $productT->getSize();
+        			
+        	
+        		}
+        	
+        		//pants
+        		if($productType=="pants"){
+        			$productT = $Type[5];
+        			$BottomType = $productT->getBottomType();
+        			$material =  $productT->getMaterial();
+                		$size = $productT->getSize();
+        		        $length = $productT->getLength();
+        		
+        		}
+        	
+        	
+        		//shoes
+        		if($productType=="shoes"){
+        			$productT = $Type[6];
+        			$ShoesType = $productT->getShoesType();
+               	        $Laces = $productT->getLaces();
+        			$material =  $productT->getMaterial();
+                		$size = $productT->getSize();
+        		
+        			
+        		}
+        	
+        		//socks
+        		if($productType=="socks"){
+        			$productT = $Type[7];
+        			$SocksType = $productT->getSocksType();
+        			$material =  $productT->getMaterial();
+                		$size = $productT->getSize();
+        		
+        			
+        		}
+        	
+        	
+        		//watches
+        		if($productType=="watches"){
+        	           $productT = $Type[9];
+        		   $WatchType = $productT->getWatchType();
+        		   $Waterproof = $productT->getWaterproof();
+        			
+        			
+        		}
+        	
+           
+            $data[] = [
+                'id' => $product->getId(),
+                'key' => $product->getKey(),
+                'productSKU' => $product->getProductSKU(),
+                'category' => $product->getCategory_Id()->getName(),
+                'parent' => $product->getParentId(),
+                'productName' => $product->getProductName(),
+                'price' => $product->getPrice()->getValue(),
+                'color' => $product->getColor()->getHex(true,true),
+                'discount ' => $product->getDiscount()->getValue(),
+                'brandName' => $product->getBrandName(),
+                'description' => $product->getDescription(),
+                'ratings' => $product->getRatings(),
+                'status' => $product->getStatus(), 
+                'image' => $product->getProductImage()->getPath(),
+                'imagename' => $product->getProductImage()->getFilename(),  
+                'returnable' => $product->getReturnable(), 
+                'warranty' => $product->getWarranty()->getValue(), 
+                'country' => $product->getCountry(), 
+                'manufacturedAt' => $product->getManufacturedAt(), 
+                
+                'productType' => $productType,
+                'necktype' =>  $necktype,
+                'material' => $material,
+                'size' => $size,
+                'sleeveType' => $sleeveType,
+                'height' =>  $height,
+                'length' => $length,
+                'width' => $width,
+                'bagType' => $bagType,
+                'Waterproof' => $Waterproof,
+                'Capacity' =>  $Capacity,
+                'BottleType' => $BottleType,
+                'Waterproof' => $Waterproof,
+                'GlassType' => $GlassType,
+                'FrameShape' => $FrameShape,
+                'HeadwearType' => $HeadwearType,
+                'JacketType' => $JacketType,
+                'BottomType' => $BottomType,
+                'ShoesType' => $ShoesType,
+                'Laces' => $Laces,
+                'SocksType' => $SocksType,
+                'WatchType' => $WatchType
+                
+            ];
+        }
+     
+           return $this->createSuccessResponse($data, true);
+      
+    }
+    
+    
+    
+    
+    /////////////////////////////
     
     
      /**
